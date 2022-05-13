@@ -35,8 +35,8 @@ jobs:
         run: git clone https://github.com/StevenBlack/hosts.git
 
       - name: Wget         
-        #run: PowerShell -NoProfile -ExecutionPolicy Bypass -Command ".\test.ps1"   
-        run: iwr -useb -Uri "https://raw.githubusercontent.com/wkway/gh/master/hosts" -o myhosts
+        run: PowerShell -NoProfile -ExecutionPolicy Bypass -Command ".\test.ps1"   
+        #run: iwr -useb -Uri "https://raw.githubusercontent.com/wkway/gh/master/hosts" -o myhosts
 
       - name: Set up Python
         uses: actions/setup-python@v3
