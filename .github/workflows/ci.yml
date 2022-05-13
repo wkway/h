@@ -35,8 +35,16 @@ jobs:
         run: git clone https://github.com/StevenBlack/hosts.git
 
       - name: Wget         
-        run: PowerShell -NoProfile -ExecutionPolicy Bypass -Command ".\test.ps1"   
-        #run: iwr -useb -Uri "https://raw.githubusercontent.com/wkway/gh/master/hosts" -o myhosts
+        #run: PowerShell -NoProfile -ExecutionPolicy Bypass -Command ".\test.ps1"   
+        run: |
+          iwr -useb -Uri "https://raw.githubusercontent.com/wkway/gh/master/hosts" -o hosts/myhosts
+          cp blacklist hosts/
+          mv build hosts/
+          mv Brave hosts/data/
+          mv WindowsSpyBlocker.extra hosts/data/
+          mv WindowsSpyBlocker.spy hosts/data/
+          mv WindowsSpyBlocker.update hosts/data/
+          mv yhosts hosts/data/
 
       - name: Set up Python
         uses: actions/setup-python@v3
